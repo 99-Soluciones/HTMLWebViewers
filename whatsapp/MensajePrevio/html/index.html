@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Editor y Copiador de Texto</title>
+    <!-- Esto solo es para visual, en Filemaker se seguira usando Style -->
+    <!-- <link rel='stylesheet' href='../css/index.css'>  -->
+    <!-- Esto sera para Filemaker -->
+    <style>
+        /* {{CSS_PLACEHOLDER}} */
+    </style>
+  </head>
+
+  <body>
+    <button id='btnClose' class='close-button' title='Cerrar'>&times;</button>
+    <textarea id='textEditor' aria-label='Editor de texto'></textarea>
+
+    <div class='controls'>
+      <button id='copyButton' title='Copiar y Enviar'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 24 24'
+          fill='currentColor'
+        >
+          <path d='M2.01 21L23 12 2.01 3 2 10l15 2-15 2z' />
+        </svg>
+        <span class='button-text'>Copiar y Enviar</span>
+      </button>
+      <span id='copyFeedback'></span>
+    </div>
+    <!-- Test JS -->
+    <!--<script type='module' src='../../../utils/filemaker.js'></script>
+    <script type='module' src='../js/index.js'></script> -->
+    <script> 
+        /* {{JS_PLACEHOLDER}} */
+    </script>
+  </body>
+</html>

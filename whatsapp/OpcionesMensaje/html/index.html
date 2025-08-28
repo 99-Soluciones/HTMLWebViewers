@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>WhatsApp 2.0</title>
+
+    <!-- Esto solo es para visual, en Filemaker se seguira usando Style -->
+    <!-- <link rel='stylesheet' href='../css/index.css'>  -->
+    <!-- Esto sera para Filemaker -->
+    <style>
+        /* {{CSS_PLACEHOLDER}} */
+    </style>
+</head>
+
+<body>
+    <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
+
+    <div class='dropdown' id='actionsDropdown'>
+        <button class='dropdown-toggle' id='ddToggle' type='button' aria-haspopup='listbox' aria-expanded='false'>
+            <span class='label' id='ddLabel'> Elige un Tema</span>
+            <span class='chevron' aria-hidden='true'></span>
+        </button>
+        <ul class='dropdown-menu' id='ddMenu' role='listbox' aria-labelledby='ddToggle'></ul>
+    </div>
+
+    <button id='btnBlank'>Mensaje en Blanco</button>
+
+    <h2>Abrir en:</h2>
+    <div class='toggle-container' id='toggleContainer' aria-label='Alterna Web/App'>
+        <div class='toggle-slider' id='toggleSlider'></div>
+        <div id='optWeb' class='toggle-option active'>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg' alt='WhatsApp' />WEB
+        </div>
+        <div id='optApp' class='toggle-option'>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg' alt='WhatsApp' />APP
+        </div>
+    </div>
+
+    <!-- <script type='module' src='../../../utils/filemaker.js'></script>
+    <script type='module' src='../js/index.js'></script> -->
+
+    <script> 
+        /* {{JS_PLACEHOLDER}} */
+    </script>
+</body>
+
+</html>

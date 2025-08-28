@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Lista de Contactos</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #dcf8c6a2;
+            color: #333;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        .close-button {
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: transparent;
+            color: red;
+            font-size: 30px;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .close-button:hover {
+            color: rgb(188, 4, 4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f5f5f5;
+            border-radius: 15px;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        thead th {
+            background-color: #3498db;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        tbody tr:nth-of-type(even) {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .btn-details {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+            border: none;
+            border-radius: 50px;
+            background-color: #25d366;
+            color: #fff;
+            font-size: medium;
+            padding: 8px;
+            width: 35px;
+            cursor: pointer;
+            overflow: hidden;
+            white-space: nowrap;
+            transition: width 0.3s ease, background 0.2s ease;
+        }
+
+        .btn-details img {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .btn-details span {
+            opacity: 0;
+            margin-left: 8px;
+            font-weight: bold;
+            transition: opacity 0.2s ease;
+        }
+
+        @media (min-width: 480px) {
+            .btn-details:hover {
+                width: 180px;
+                background-color: #25d366;
+            }
+
+            .btn-details:hover span {
+                opacity: 1;
+            }
+        }
+
+        .infoDetails {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .client-name {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .phone-country {
+            font-size: 0.9em;
+            color: #535252;
+            font-style: oblique;
+        }
+
+        @media (max-width: 479px) {
+            body {
+                padding: 10px;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .infoDetails {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .client-name {
+                font-size: 1em;
+            }
+
+            .phone-country {
+                font-size: 0.8em;
+            }
+
+            .btn-details {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.8em;
+                padding: 6px;
+            }
+
+            .btn-details img {
+                width: 18px;
+                height: 18px;
+            }
+
+            .btn-details span {
+                opacity: 1;
+            }
+
+            table {
+                font-size: 0.85em;
+            }
+
+            th,
+            td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class='header'>
+        <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
+        <h2>Lista de Contactos</h2>
+    </div>
+
+    <div class='container'>
+        <table>
+            <tbody id='client-list-body'></tbody>
+        </table>
+    </div>
+
+    <script>
+        const btnClose = document.getElementById('btnClose');
+
+        function displayClients(clients) {
+            const tableBody = document.getElementById('client-list-body');
+            tableBody.innerHTML = '';
+            if (!clients || clients.length === 0) {
+                tableBody.innerHTML =
+                    `<tr><td style='text-align:center;'>No hay clientes para mostrar.</td></tr>`;
+                return;
+            }
+
+            clients.forEach(client => {
+                const row = tableBody.insertRow();
+                const cell = row.insertCell();
+
+                const infoDetails = document.createElement('div');
+                infoDetails.className = 'infoDetails';
+
+                const textContainer = document.createElement('div');
+
+                const phoneDiv = document.createElement('div');
+                phoneDiv.className = 'phone-country';
+                phoneDiv.textContent = `(${client.codigoPais}) ${client.celNumero} | ${client.contactoPuesto}`;
+
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'client-name';
+                nameDiv.textContent = client.contactoNombre;
+
+                textContainer.appendChild(phoneDiv);
+                textContainer.appendChild(nameDiv);
+
+                const button = document.createElement('button');
+                button.className = 'btn-details';
+                button.dataset.id = client.contactoIDU;
+
+                const icon = document.createElement('img');
+                icon.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg';
+                icon.alt = 'WhatsApp';
+
+                const span = document.createElement('span');
+                span.textContent = 'Enviar mensaje';
+
+                button.appendChild(icon);
+                button.appendChild(span);
+
+                button.addEventListener('click', function () {
+                    const fullPhone = `${client.codigoPais}${client.celNumero}`;
+                    sendMessage(fullPhone, client.contactoNombre, client.contactoPuesto, 1);
+                });
+
+                infoDetails.appendChild(textContainer);
+                infoDetails.appendChild(button);
+                cell.appendChild(infoDetails);
+            });
+        }
+
+        function sendMessage(clientPhone, clientName, clientEmployment, isClose) {
+            clientPhone = clientPhone.replace(/\D/g, '');
+            if (typeof FileMaker !== 'undefined') {
+                const data = {
+                    className: '" & $className &"',
+                    classRecordIDoU: '" & $classRecordIDoU & "',
+                    whatsNumber: clientPhone,
+                    contactoNombre: clientName,
+                    contactoPuesto: clientEmployment,
+                    isClose: isClose
+                };
+                FileMaker.PerformScript(
+                    'api.WhatsApp ## open.MSG.Opcions[js]|v0.25.2',
+                    JSON.stringify(data)
+                );
+            } else {
+                alert(`Simulando envío de mensaje a cliente:(${clientPhone})`);
+            }
+        }
+
+        const clientData = " & $contactosArray &";
+
+
+        displayClients(clientData);
+        btnClose.addEventListener('click', () => sendMessage('', '', '', 0));
+    </script>
+</body>
+
+</html>

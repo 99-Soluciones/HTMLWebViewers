@@ -1,0 +1,233 @@
+:root {
+    --wa: #25d366;
+    --radius: 999px;
+    --bleed: 14px;
+    --nudge: 6px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #e3efda;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.close-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: red;
+    font-size: 30px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.15s ease;
+}
+
+.close-button:hover {
+    color: darkred;
+    transform: scale(1.05);
+}
+
+#btnBlank {
+    width: 200px;
+    height: 40px;
+    background-color: #fff;
+    border: 3px solid #fff;
+    border-radius: 100px;
+    font-weight: 700;
+    padding-left: 56px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+    background-repeat: no-repeat;
+    background-position: 18px center;
+    background-size: 30px 30px;
+    margin: 12px auto 24px;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+#btnBlank:hover {
+    background-color: var(--wa);
+    color: #fff;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06), 0 10px 24px rgba(0, 0, 0, 0.22);
+    transform: translateY(-1px);
+}
+
+h2 {
+    margin: 0 0 7px;
+    font-size: 17px;
+}
+
+#optApp {
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 5px;
+}
+
+.toggle-container {
+    position: relative;
+    width: 150px;
+    height: 29px;
+    background-color: #fffdfd;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 18px;
+    cursor: pointer;
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.5), inset 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.toggle-option {
+    flex: 1 1 50%;
+    height: 100%;
+    z-index: 2;
+    font-weight: 800;
+    color: #6b6b6b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    position: relative;
+    font-size: 12px;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.toggle-option img {
+    width: 11px;
+    height: 11px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.toggle-option.active {
+    color: #fff;
+}
+
+.toggle-option.active img {
+    opacity: 1;
+}
+
+.toggle-option:not(.active):hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 1px solid var(--wa);
+    border-radius: var(--radius);
+    pointer-events: none;
+    z-index: 3;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: var(--wa);
+    border-radius: var(--radius);
+    z-index: 1;
+    transition: left 0.28s ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown {
+    width: 320px;
+    position: relative;
+    user-select: none;
+}
+
+.dropdown-toggle {
+    width: 100%;
+    height: 50px;
+    border: 0;
+    border-radius: 14px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.dropdown-toggle:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
+}
+
+.dropdown-toggle .label {
+    color: #333;
+    font-weight: 700;
+}
+
+.chevron {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid #25d366;
+    transition: transform 0.2s ease;
+    border-radius: 2px;
+}
+
+.dropdown.open .chevron,
+.dropdown:hover .chevron {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.18), 0 8px 0 rgba(0, 0, 0, 0.04);
+    margin-top: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-4px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    max-height: 260px;
+    overflow: auto;
+    z-index: 2000;
+}
+
+.dropdown.open .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 4px 2px;
+    font-weight: 600;
+    color: #3b3b3b;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.08s ease;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.dropdown-menu li:hover,
+.dropdown-menu li.selected {
+    background: var(--wa);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+}
