@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* --- Functions ---*/
 
-    /*--- execFileMaker.js ---*/
+    /* {{FILEMAKERFUNCTION_PLACEHOLDER}} */
 
     /**
      * Createe JSON to decide how to prooced (close WebViewer or open WhatsApp Chat)

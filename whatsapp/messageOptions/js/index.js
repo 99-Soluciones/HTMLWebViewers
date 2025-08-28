@@ -1,4 +1,4 @@
-/*import { execFileMaker } from '../../../utils/filemaker.js';*/
+/*import { execFileMaker } from '../../../utils/execFileMaker.js';*/
 
 document.addEventListener('DOMContentLoaded', () => {
     /* --- DOM Elements ---*/
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     */
 
     /* --- Functions --- */
-    /* {{FILEMAKERFUNCTION_PLACEHOLDER}} */
+    /*--- execFileMaker.js ---*/
 
     /**
      * Renders the list of type of message to generate

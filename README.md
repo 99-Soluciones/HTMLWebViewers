@@ -8,7 +8,7 @@ Al desarrollar los componentes de forma externa, podemos aprovechar las tecnolog
 
 ## Estructura
 
-Cada carpeta principal en este repositorio representa un conjunto de funcionalidades o un "módulo" autocontenido. Por ejemplo, la carpeta `whatsapp/` contiene una serie de componentes relacionados con la interacción con la API de WhatsApp.
+Cada carpeta principal en este repositorio representa un conjunto de funcionalidades o un "módulo" autocontenido. Por ejemplo, la carpeta `whatsapp/` contiene una serie de componentes relacionados con la interacción con eñ apartado de WhatsApp.
 
 La idea es que cada módulo contenga todo lo necesario para funcionar de manera independiente.
 

@@ -1,4 +1,4 @@
-/*import { execFileMaker } from '../../../utils/filemaker.js';*/
+/*import { execFileMaker } from '../../../utils/execFileMaker.js';*/
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Data --- */
   const clientData = " & $contactosArray &";
     /* --- Data example tests--- */
-  /*const clientData = [
+  /** 
+  const clientData = [
     {
       contactoIDU: 1,
       codigoPais: "52",
@@ -24,13 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
       contactoPuesto: "Designe de ela maafrtatbsdhshgdsdsdgvhjsdghj",
       contactoNombre: "Jane Smith",
     },
-  ];*/
+  ];
+  **/
 
 
   /* --- Functions --- */
 
 
-  /* {{FILEMAKERFUNCTION_PLACEHOLDER}} */
+  /*--- execFileMaker.js ---*/
 
   /**
    * Renders the list of clients in the table.
@@ -113,8 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sanitizedPhone = clientPhone.replace(/\D/g, '');
     const data = {
       /* --- JSON example data --- */
-      /* className: 'Cliente',
-      classRecordIDoU: '7000',*/
+      /**
+      className: 'Cliente',
+      classRecordIDoU: '7000',
+      **/
       className: '" & $className &"',
       classRecordIDoU: '" & $classRecordIDoU & "',
       whatsNumber: sanitizedPhone,

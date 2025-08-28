@@ -1,0 +1,16 @@
+.close-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: red;
+    font-size: 30px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: transform 0.15s ease;
+}
+
+.close-button:hover {
+    color: darkred;
+    transform: scale(1.05);
+}

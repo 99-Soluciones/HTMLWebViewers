@@ -96,18 +96,8 @@ body {
     transition: opacity 0.3s ease-in-out;
 }
 
-.close-button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-    color: rgb(255, 0, 0);
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
+/*--- close.button.css ---*/
 
-.close-button:hover {
-    color: #a81f1f;
+.close-button {
+    position: static;
 }
