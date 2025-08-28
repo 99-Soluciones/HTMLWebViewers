@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Renders the list of clients in the table.
-   * @param {Array} cliensts - The list of clients to display.
+   * @param {Array<Object>} clients - The list of clients to display.
    */
   function displayClients(clients) {
     tableBody.innerHTML = '';
