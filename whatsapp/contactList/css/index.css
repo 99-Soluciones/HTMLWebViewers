@@ -55,7 +55,7 @@ tbody tr:nth-of-type(even) {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 8px;
+    gap: 1px;
     border: none;
     border-radius: 50px;
     background-color: #25d366;
@@ -113,7 +113,7 @@ tbody tr:nth-of-type(even) {
 }
 
 
-@media (max-width: 479px) {
+@media (max-width: 449px) {
     .infoDetails {
         flex-direction: column;
         align-items: flex-start;
@@ -169,3 +169,4 @@ tbody tr:nth-of-type(even) {
     position: absolute;
     left: 0;
 }
+

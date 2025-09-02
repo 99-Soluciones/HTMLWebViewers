@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <script type='module'
+        src='https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js'></script>
+    <!-- Esto solo es para pruebas, en Filemaker se seguira usando Style -->
+    <!-- <link rel='stylesheet' href='../css/index.css'> -->
+    <style>
+        /* {{CSS_PLACEHOLDER}} */
+    </style>
+    <!-- Reealizar preubas con JS -->
+    <!-- <script type='module' src='../../../utils/js/execFileMaker.js'></script>
+    <script type='module' src='../../../utils/js/LocateAPI/addressUtils.js'></script>
+    <script type='module' src='../../../utils/js/LocateAPI/formatComments.js'></script>
+    <script type='module' src='../../../utils/js/LocateAPI/formatTittle.js'></script>
+    <script type='module' src='../js/index.js'></script> -->
+    <!-- Esto solo es para pruebas, en Filemaker se seguira usando JS -->
+
+    <script>
+        /* {{JS_PLACEHOLDER}} */
+    </script>
+
+</head>
+
+<body>
+    <gmpx-api-loader key='AIzaSyBoyn6j2iBSYnjo9SS5PnCP_zMuz-ME1_8'
+        solution-channel='GMP_GE_mapsandplacesautocomplete_v2'>
+    </gmpx-api-loader>
+
+    <gmp-map center='19.4326,-99.1332' zoom='13' map-id='DEMO_MAP_ID'>
+        <div slot='control-block-start-inline-start'>
+            <gmpx-place-picker placeholder='Buscar dirección...'></gmpx-place-picker>
+        </div>
+        <gmp-advanced-marker></gmp-advanced-marker>
+    </gmp-map>
+</body>
+
+</html>

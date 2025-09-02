@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fragments = document.createDocumentFragment();
 
     clients.forEach((client) => {
+      if (!client.celNumero || client.celNumero.length < 10) return;
       const row = document.createElement('tr');
       const cell = document.createElement('td');
 
