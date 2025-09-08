@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     /* --- DOM Elements ---*/
+
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleSlider = document.getElementById('toggleSlider');
     const optWeb = document.getElementById('optWeb');
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     const options = "& $options &";
 
+    
     /* --- Data Example Test --- */
     
     /*
@@ -52,7 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             listItem.textContent = options.option;
             listItem.setAttribute('data-value', options.key);
             ddMenu.appendChild(listItem);
-        });
+        });    
+        
     }
 
     /**
@@ -75,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
             isWebApp: isApp ? 'APP' : 'WEB',
             callType: callType,
             msgType: msgType,
+            contactoNombre: '" & $contactoNombre & "',
+
         };
         setTimeout(() => execFileMaker(payload, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2'), 500);
     }
@@ -82,6 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- Exec functions --- */
 
     createOptions();
+
+
 
     btnClose.addEventListener('click', () => sendTypeMessagge('closeDiv'));
     btnBlankFM.addEventListener('click', () =>

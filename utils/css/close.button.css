@@ -1,16 +1,36 @@
 .close-button {
-    width: 30px;
-    height: 30px;
+    position: absolute;      
+    left: 1px;              
+    background: none;
     border: none;
-    background: transparent;
     color: red;
-    font-size: 30px;
+    font-size: 50px;
     cursor: pointer;
-    align-self: flex-start;
+    align-self: auto;
     transition: transform 0.15s ease;
 }
+
 
 .close-button:hover {
     color: darkred;
     transform: scale(1.05);
 }
+
+.header {
+  display: flex;           
+  justify-content: center; 
+  align-items: center;     
+  position: relative;      
+  padding: 1rem;           
+  width: 100%;             
+}
+
+.title {
+  margin: 0; 
+  font-size: 1.2rem;
+  justify-content:center;
+  align-items: center;
+  align-content: center;
+}  
+
+

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       contactoIDU: 2,
       codigoPais: "52",
       celNumero: "5587654321",
-      contactoPuesto: "Designe de ela maafrtatbsdhshgdsdsdgvhjsdghj",
+      contactoPuesto: "Developer Senior",
       contactoNombre: "Jane Smith",
     },
   ];

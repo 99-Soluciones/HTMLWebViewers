@@ -7,8 +7,8 @@
     <title>WhatsApp 2.0</title>
 
     <!-- Esto solo es para visual, en Filemaker se seguira usando Style -->
-    <!-- <link rel='stylesheet' href='../../../utils/css/close.button.css'> 
-    <link rel='stylesheet' href='../css/index.css'>  -->
+    <!-- <link rel='stylesheet' href='../../../utils/css/close.button.css'>
+    <link rel='stylesheet' href='../css/index.css'> -->
     <!-- Esto sera para Filemaker -->
     <style>
         /* {{CSS_PLACEHOLDER}} */
@@ -16,7 +16,10 @@
 </head>
 
 <body>
-    <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
+    <div class='header'>
+        <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
+        <h2 class="title">¿Sobre qué quieres contactar a <br>" & $contactoNombre & "?</h2>
+    </div>
 
     <div class='dropdown' id='actionsDropdown'>
         <button class='dropdown-toggle' id='ddToggle' type='button' aria-haspopup='listbox' aria-expanded='false'>
@@ -42,7 +45,7 @@
     <!-- <script type='module' src='../../../utils/filemaker.js'></script>
     <script type='module' src='../js/index.js'></script> -->
 
-    <script> 
+    <script>
         /* {{JS_PLACEHOLDER}} */
     </script>
 </body>
