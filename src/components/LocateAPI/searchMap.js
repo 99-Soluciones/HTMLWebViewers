@@ -1,8 +1,8 @@
 /*
 import { execFileMaker } from '../../../utils/js/execFileMaker.js';
-import { formatComments } from '../../../utils/js/LocateAPI/formatComments.js';
-import { getComponent, getDelegacion, buildAddressLine } from '../../../utils/js/LocateAPI/addressUtils.js';
-import { formatTitleWithWrap } from '../../../utils/js/LocateAPI/formatTittle.js';
+import { formatComments } from '../../../utils/js/formatComments.js';
+import { getComponent, getDelegacion, buildAddressLine } from '../../../utils/js/formatAddress.js';
+import { formatTitleWithWrap } from '../../../utils/js/formatTittle.js';
 */
 
 /* --- Data --- */
