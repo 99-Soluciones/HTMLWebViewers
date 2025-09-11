@@ -98,3 +98,22 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /*--- close.button.css ---*/
+
+
+.header-content {
+  display: flex;
+  justify-content: space-between; 
+}
+
+.header-content p {
+  margin: 0px; 
+  font-size: 1.2rem;
+  align-self: center; 
+  font-weight: 450;
+}
+
+@media (max-width: 480px) {
+  .header-content {
+    flex-direction: column;
+  }
+}

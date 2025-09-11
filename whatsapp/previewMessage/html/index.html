@@ -16,7 +16,11 @@
   <body>
       <div class='header'>
         <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
-        <h2 class="title">Revisa y envía a " & $contactoNombre & "</h2>
+        <div class='header-content'>
+           <h2 class="title">Revisa y envía a:&nbsp;</h2>
+           <p>" & $contactoNombre & "</p>
+        </div>
+       
     </div>
     <textarea id='textEditor' aria-label='Editor de texto'></textarea>
 
