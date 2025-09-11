@@ -2,14 +2,14 @@
 
 
 /* --- Data ---*/
-const clientInfo = " & $fiscalSimilar &";
+// const clientInfo = " & $json &";
 
 
 /* --- Data Example ---*/
-/** *
+/** */
 const clientInfo = [
   {
-    nombreCliente: 'Juan Pérez',
+    nombreCliente: 'Juan Pérez De La Rosa Nombre Largo Haber',
     clienteID: 'C001',
     rfc: 'PEPJ850101H00',
     razonSocial: 'Juan Pérez SA de CV',
@@ -42,7 +42,7 @@ const clientInfo = [
   },
 ];
  
-** */
+/** */
 
 /* --- Functions ---*/
 

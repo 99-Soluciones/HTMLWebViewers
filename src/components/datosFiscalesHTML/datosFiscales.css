@@ -45,6 +45,7 @@
             padding: 20px;
             border-bottom: 1px solid #e9eaec;
             transition: background-color 0.2s ease-in-out;
+            gap: 20px;
         }
         
         .client-card:last-child {
@@ -61,12 +62,11 @@
             flex-direction: column;
             gap: 5px; 
             align-items: flex-start;
-            width: 320px;
+            width: 100%;
         }
 
         .client-name {
             align-items: flex-start;
-            text-align: center;
             font-size: 1.5em;
             font-weight: 600;
             color: #050505;
@@ -82,8 +82,7 @@
         }
 
         .client-action{
-            width: 100%;
-            max-width: 90px;
+            width: 20%;
             display: flex; 
             justify-content: center;
       
