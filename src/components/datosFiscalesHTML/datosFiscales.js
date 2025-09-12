@@ -1,12 +1,10 @@
 /* import  { execFileMaker } from '../../../utils/js/execFileMaker.js'; */
 
-
 /* --- Data ---*/
-// const clientInfo = " & $json &";
-
+const clientInfo = " & $json &";
 
 /* --- Data Example ---*/
-/** */
+/** *
 const clientInfo = [
   {
     nombreCliente: 'Juan Pérez De La Rosa Nombre Largo Haber',
@@ -41,64 +39,57 @@ const clientInfo = [
     idRegFiscal: '601',
   },
 ];
- 
-/** */
-
+** */
 /* --- Functions ---*/
 
-/*--- execFileMaker.js ---*/
+    /*--- execFileMaker.js ---*/
 
-/**
- * Render Client List if there are clients available or show a message if not
- * @returns {void} 
- */
 function deployClients() {
     const container = document.getElementById('client-list-container');
-
-
     if (clientInfo.length === 0) {
         container.innerHTML = `<li>
          <span class='noResults'>No hay resultados disponibles.</span>                      
          </li>`;
-        
         return;
     }
     clientInfo.forEach((cliente) => {
         const listItem = document.createElement('li');
         listItem.className = 'client-card';
+
+    
+        const nombreClienteClass = cliente.nombreCliente.length > 30 ? 'small-text' : '';
+        const razonSocialClass = cliente.razonSocial.length > 30 ? 'small-text' : '';
+
         listItem.innerHTML = `
-                    <div class='client-action'>
-                        <button class='select-button' data-id='${cliente.clienteID}' aria-label='Seleccionar datos'></button>
-                    </div>
-                    <div class='client-info'>
-                        <span class='client-name'>${cliente.nombreCliente}</span>
-                        <span class='client-details'><strong>Razón Social:</strong> ${cliente.razonSocial}</span>
-                        <span class='client-details'>
-                            <strong>RFC:</strong> ${cliente.rfc} | 
-                            <strong>CP:</strong> ${cliente.cp}
-                        </span>
-                    </div>
-                    
-                `;
+            <div class='client-action'>
+                <button class='select-button' data-id='${cliente.clienteID}' aria-label='Seleccionar datos'></button>
+            </div>
+            <div class='client-info'>
+                <span class='client-name ${nombreClienteClass}'>${cliente.nombreCliente}</span>
+                <span class='client-details ${razonSocialClass}'><strong>Razón Social:</strong> ${cliente.razonSocial}</span>
+                <span class='client-details'>
+                    <strong>RFC:</strong> ${cliente.rfc} | 
+                    <strong>CP:</strong> ${cliente.cp}
+                </span>
+            </div>
+        `;
         container.appendChild(listItem);
     });
 }
 
 /* --- Event Listeners ---*/
-document
-    .getElementById('client-list-container')
-    .addEventListener('click', function (event) {
-        if (event.target && event.target.matches('button.select-button')) {
-            const clienteIDSeleccionado = event.target.getAttribute('data-id');
+document.getElementById('client-list-container').addEventListener('click', function (event) {
+    if (event.target && event.target.matches('button.select-button')) {
+        const clienteIDSeleccionado = event.target.getAttribute('data-id');
 
-            const clienteSeleccionado = clientInfo.find(
-                (cliente) => cliente.clienteID === clienteIDSeleccionado
-            );
+        const clienteSeleccionado = clientInfo.find(
+            (cliente) => cliente.clienteID === clienteIDSeleccionado
+        );
 
-            execFileMaker(clienteSeleccionado, 'cliente ## fiscalEdit.SetCLFromHTML[js]|v0.25.2');
-        }
-    });
+       execFileMaker(clienteSeleccionado, 'cliente ## fiscalEdit.SetCLFromHTML[js]|v0.25.2');
+
+        console.log('Cliente seleccionado:', clienteSeleccionado);
+    }
+});
 
 document.addEventListener('DOMContentLoaded', deployClients);
-
-
