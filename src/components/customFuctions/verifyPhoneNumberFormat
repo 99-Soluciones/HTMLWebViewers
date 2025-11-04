@@ -1,0 +1,24 @@
+Let (
+[
+    // 1. Limpiar y estandarizar las entradas
+    vCountryCode = Trim ( countryCode ) ;
+    vNumberClean  =  Filter ( number ; "0123456789" ) ;
+    vLength = Length ( vNumberClean )
+] ;
+
+// 2. Aplicar el formato según el país y la longitud del número
+Case (
+    // Formato para México: 10 dígitos -> ## #### ####
+    vCountryCode = "52" and vLength  ≥  10 ;
+    numberClean = Left ( vNumberClean ; 10 );
+    number.verifySizeNumber (Left ( numberClean ; 2 ) & " " & Middle ( numberClean ; 3 ; 4 ) & " " & Right ( numberClean ; 4 ); 12); 
+
+    // Formato para EE.UU./Canadá: 10 dígitos -> (###) ###-####
+    vCountryCode = "1" or vCountryCode = "01" and vLength  ≥  10;
+    number.verifySizeNumber (Left ( vNumberClean ; 3 ) & " " & Middle ( vNumberClean ; 4 ; 3 ) & " " & Right ( vNumberClean ; 4 ); 12); 
+
+    // Caso por defecto: si no coincide, devuelve el número limpio (máx. 10 dígitos)
+    vNumberClean
+)
+
+)

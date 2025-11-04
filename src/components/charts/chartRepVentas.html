@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(77, 77, 77);
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="SCATTER_chart"></div>
+  </body>
+  <script>
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var dataArray = [
+        [1, null, null, null, null],
+        [2, null, null, null, null],
+        [3, null, null, null, null],
+        [4, null, null, null, null],
+        [5, null, null, null, null],
+        [6, null, null, null, null],
+        [7, null, null, null, null],
+        [8, null, null, null, null],
+        [9, null, null, null, null],
+        [10, null, null, null, null],
+        [11, null, null, null, null],
+        [12, null, null, null, null],
+        [13, null, null, null, null],
+        [14, null, null, null, null],
+        [15, null, null, null, null],
+        [16, null, null, null, null],
+        [17, null, null, null, null],
+        [18, null, null, null, null],
+        [19, null, null, null, null],
+        [20, null, null, null, null],
+        [21, null, null, null, null],
+        [22, null, null, null, null],
+        [23, null, null, null, null],
+        [24, null, null, null, null],
+        [25, null, null, null, null],
+        [26, null, null, null, null],
+        [27, null, null, null, null],
+        [28, null, null, null, null],
+        [29, null, null, null, null],
+        [30, null, null, null, null],
+        [
+          30,
+          null,
+          null,
+          8.35,
+          "<div style='padding: 5px 5px 5px 5px; border: 2pt solid rgb(230, 230, 230); width: 250px; height: auto; line-height: 90%'><h4>30/07/2025 <span style='color:rgb(255,0,0)'> (5) Días tarde</span></h4><p>Miércoles - 12:20:54 PM</p><h4>Buffalo Wild Wings Mundo E</h4><p>Revisar si eso va causar la tarea de duplicar en los Wild Wings</p></div>",
+        ],
+        [
+          30,
+          9.13,
+          "<div style='padding: 5px 5px 5px 5px; border: 2pt solid rgb(230, 230, 230); width: 250px; height: auto; line-height: 90%'><h4>30/07/2025 <span style='color:rgb(255,0,0)'></span></h4><p>Miércoles - 1:07:37 PM</p><h4>Buffalo Wild Wings Mundo E</h4><p>2nda Inento.  A ver si los mensajes ahora se colocan en las demas sucs.</p></div>",
+          null,
+          null,
+        ],
+      ];
+      var data = new google.visualization.DataTable();
+      data.addColumn("number", "Dia del mes");
+      data.addColumn("number", "Tareas a Tiempo");
+      data.addColumn({ type: "string", role: "tooltip", p: { html: true } });
+      data.addColumn("number", "Tareas Tarde");
+      data.addColumn({ type: "string", role: "tooltip", p: { html: true } });
+      data.addRows(dataArray);
+      var options = {
+        bar: { groupWidth: "" },
+        chartArea: {
+          backgroundColor: { stroke: "", strokeWidth: "" },
+          bottom: "",
+          height: "89%",
+          left: "",
+          right: "",
+          top: "7",
+          width: "85%",
+        },
+        enableInteractivity: true,
+        hAxis: {
+          baselineColor: "",
+          format: "",
+          gridlines: { color: "", count: 0 },
+          maxValue: 30,
+          minValue: 1,
+          minorGridlines: { color: "", count: 0 },
+          slantedText: false,
+          slantedTextAngle: "",
+          textPosition: "out",
+          textStyle: {
+            bold: false,
+            color: "rgb(77,77,77)",
+            fontName: "",
+            fontSize: 10,
+          },
+        },
+        height: "290",
+        isStacked: false,
+        legend: "none",
+        series: {
+          0: {
+            color: "green",
+            lineWidth: "",
+            pointShape: "",
+            pointSize: "",
+            pointsVisible: "",
+          },
+          1: {
+            color: "red",
+            lineWidth: "",
+            pointShape: "",
+            pointSize: "",
+            pointsVisible: "",
+          },
+        },
+        tooltip: { isHtml: true },
+        vAxis: {
+          format: "",
+          gridlines: { color: "#c2c2c2" },
+          minorGridlines: { count: 0 },
+          textPosition: "",
+          textStyle: {
+            bold: false,
+            color: "#7c7c7c",
+            fontName: "",
+            fontSize: 10,
+          },
+          ticks: [
+            { f: "", v: 0 },
+            { f: "1AM", v: 0.5 },
+            { f: "2AM", v: 1 },
+            { f: "3AM", v: 1.5 },
+            { f: "4AM", v: 2 },
+            { f: "5AM", v: 2.5 },
+            { f: "6AM", v: 3 },
+            { f: "7AM", v: 3.5 },
+            { f: "8AM", v: 4 },
+            { f: "9AM", v: 5 },
+            { f: "10AM", v: 6 },
+            { f: "11AM", v: 7 },
+            { f: "12PM", v: 8 },
+            { f: "1PM", v: 9 },
+            { f: "2PM", v: 10 },
+            { f: "3PM", v: 11 },
+            { f: "4PM", v: 12 },
+            { f: "5PM", v: 13 },
+            { f: "6PM", v: 14 },
+            { f: "7PM", v: 15 },
+            { f: "8PM", v: 16 },
+            { f: "9PM", v: 16.5 },
+            { f: "10PM", v: 17 },
+            { f: "11PM", v: 17.5 },
+            { f: "12AM", v: 18 },
+          ],
+        },
+        width: "100%",
+      };
+      options.hAxis.ticks = Array.from({ length: 30 }, (_, i) => i + 1);
+      var chart = new google.visualization.ScatterChart(
+        document.getElementById("SCATTER_chart")
+      );
+      chart.draw(data, options);
+    }
+  </script>
+</html>

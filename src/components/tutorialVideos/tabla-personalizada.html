@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Personalizada</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 14px;
+        }
+
+        .custom-table thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .custom-table th {
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .custom-table th:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 25%;
+            height: 50%;
+            width: 1px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .custom-table th:last-child:after {
+            display: none;
+        }
+
+        .custom-table tbody tr {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .custom-table tbody tr:hover {
+            background: linear-gradient(135deg, #f8f9ff, #e8f4ff);
+            transform: scale(1.01);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-table td {
+            padding: 15px;
+            vertical-align: middle;
+            border-right: 1px solid #f0f0f0;
+        }
+
+        .custom-table td:last-child {
+            border-right: none;
+        }
+
+        /* Estilos para diferentes tipos de celdas */
+        .status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .status.active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.inactive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .priority {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .priority.high {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .priority.medium {
+            background: #feca57;
+            color: #333;
+        }
+
+        .priority.low {
+            background: #48dbfb;
+            color: white;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-edit {
+            background: #4ecdc4;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #26a69a;
+            transform: translateY(-2px);
+        }
+
+        .btn-delete {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #ee5a52;
+            transform: translateY(-2px);
+        }
+
+        .btn-view {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-view:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        /* Filtros y búsqueda */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .filter-select {
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .custom-table {
+                font-size: 12px;
+            }
+
+            .custom-table th,
+            .custom-table td {
+                padding: 10px 8px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: none;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .custom-table tbody tr {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .pagination button.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Tabla de Gestión de Proyectos</h1>
+        
+        <!-- Controles de la tabla -->
+        <div class="controls">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Buscar proyectos..." onkeyup="filterTable()">
+            </div>
+            
+            <select class="filter-select" id="statusFilter" onchange="filterByStatus()">
+                <option value="">Todos los estados</option>
+                <option value="active">Activo</option>
+                <option value="inactive">Inactivo</option>
+                <option value="pending">Pendiente</option>
+            </select>
+            
+            <button class="add-btn" onclick="addNewRow()">➕ Agregar Proyecto</button>
+        </div>
+
+        <!-- Tabla personalizada -->
+        <div class="table-container">
+            <table class="custom-table" id="projectTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">ID 🔽</th>
+                        <th onclick="sortTable(1)">Usuario 🔽</th>
+                        <th onclick="sortTable(2)">Proyecto 🔽</th>
+                        <th onclick="sortTable(3)">Estado 🔽</th>
+                        <th onclick="sortTable(4)">Prioridad 🔽</th>
+                        <th onclick="sortTable(5)">Progreso 🔽</th>
+                        <th onclick="sortTable(6)">Fecha Inicio 🔽</th>
+                        <th onclick="sortTable(7)">Fecha Fin 🔽</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#001</td>
+                        <td>
+                            <div class="avatar">JD</div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <strong>Juan Pérez</strong><br>
+                                <small>juan.perez@email.com</small>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>Sistema CRM</strong><br>
+                            <small>Desarrollo de sistema de gestión de clientes</small>
+                        </td>
+                        <td><span class="status active">Activo</span></td>
+                        <td><span class="priority high">Alta</span></td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                            <small>75%</small>
+                        </td>
+                        <td>2024-01-15</td>
+                        <td>2024-03-30</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-view" onclick="viewProject(1)">👁️</button>
+                                <button class="btn btn-edit" onclick="editProject(1)">✏️</button>
+                                <button class="btn btn-delete" onclick="deleteProject(1)">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#002</td>
+                        <td>
+                            <div class="avatar">MG</div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <strong>María García</strong><br>
+                                <small>maria.garcia@email.com</small>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>App Móvil</strong><br>
+                            <small>Aplicación móvil para e-commerce</small>
+                        </td>
+                        <td><span class="status pending">Pendiente</span></td>
+                        <td><span class="priority medium">Media</span></td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%"></div>
+                            </div>
+                            <small>45%</small>
+                        </td>
+                        <td>2024-02-01</td>
+                        <td>2024-05-15</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-view" onclick="viewProject(2)">👁️</button>
+                                <button class="btn btn-edit" onclick="editProject(2)">✏️</button>
+                                <button class="btn btn-delete" onclick="deleteProject(2)">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#003</td>
+                        <td>
+                            <div class="avatar">CA</div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <strong>Carlos Ruiz</strong><br>
+                                <small>carlos.ruiz@email.com</small>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>Web Corporativa</strong><br>
+                            <small>Sitio web institucional</small>
+                        </td>
+                        <td><span class="status inactive">Inactivo</span></td>
+                        <td><span class="priority low">Baja</span></td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%"></div>
+                            </div>
+                            <small>90%</small>
+                        </td>
+                        <td>2024-01-01</td>
+                        <td>2024-02-28</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-view" onclick="viewProject(3)">👁️</button>
+                                <button class="btn btn-edit" onclick="editProject(3)">✏️</button>
+                                <button class="btn btn-delete" onclick="deleteProject(3)">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#004</td>
+                        <td>
+                            <div class="avatar">LM</div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <strong>Laura Martínez</strong><br>
+                                <small>laura.martinez@email.com</small>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>API Rest</strong><br>
+                            <small>Desarrollo de API para microservicios</small>
+                        </td>
+                        <td><span class="status active">Activo</span></td>
+                        <td><span class="priority high">Alta</span></td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%"></div>
+                            </div>
+                            <small>30%</small>
+                        </td>
+                        <td>2024-03-01</td>
+                        <td>2024-06-30</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-view" onclick="viewProject(4)">👁️</button>
+                                <button class="btn btn-edit" onclick="editProject(4)">✏️</button>
+                                <button class="btn btn-delete" onclick="deleteProject(4)">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#005</td>
+                        <td>
+                            <div class="avatar">DF</div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <strong>Diego Fernández</strong><br>
+                                <small>diego.fernandez@email.com</small>
+                            </div>
+                        </td>
+                        <td>
+                            <strong>Dashboard Analytics</strong><br>
+                            <small>Panel de control para análisis de datos</small>
+                        </td>
+                        <td><span class="status pending">Pendiente</span></td>
+                        <td><span class="priority medium">Media</span></td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <small>60%</small>
+                        </td>
+                        <td>2024-02-15</td>
+                        <td>2024-04-30</td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn btn-view" onclick="viewProject(5)">👁️</button>
+                                <button class="btn btn-edit" onclick="editProject(5)">✏️</button>
+                                <button class="btn btn-delete" onclick="deleteProject(5)">🗑️</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Paginación -->
+        <div class="pagination">
+            <button onclick="previousPage()" id="prevBtn">⬅️ Anterior</button>
+            <button class="active" onclick="goToPage(1)">1</button>
+            <button onclick="goToPage(2)">2</button>
+            <button onclick="goToPage(3)">3</button>
+            <button onclick="nextPage()" id="nextBtn">Siguiente ➡️</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let sortDirection = {};
+
+        // Función de búsqueda
+        function filterTable() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toUpperCase();
+            const table = document.getElementById('projectTable');
+            const tbody = table.querySelector('tbody');
+            const rows = tbody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                let txtValue = row.textContent || row.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtro por estado
+        function filterByStatus() {
+            const select = document.getElementById('statusFilter');
+            const filter = select.value;
+            const table = document.getElementById('projectTable');
+            const tbody = table.querySelector('tbody');
+            const rows = tbody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const statusCell = row.cells[3];
+                const statusSpan = statusCell.querySelector('.status');
+                
+                if (filter === '' || statusSpan.classList.contains(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Función para ordenar tabla
+        function sortTable(columnIndex) {
+            const table = document.getElementById('projectTable');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            const direction = sortDirection[columnIndex] === 'asc' ? 'desc' : 'asc';
+            sortDirection[columnIndex] = direction;
+
+            rows.sort((a, b) => {
+                const aVal = a.cells[columnIndex].textContent.trim();
+                const bVal = b.cells[columnIndex].textContent.trim();
+                
+                if (direction === 'asc') {
+                    return aVal.localeCompare(bVal);
+                } else {
+                    return bVal.localeCompare(aVal);
+                }
+            });
+
+            // Limpiar tbody y agregar filas ordenadas
+            tbody.innerHTML = '';
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Funciones de acciones
+        function viewProject(id) {
+            alert(`Ver detalles del proyecto #${id}`);
+        }
+
+        function editProject(id) {
+            alert(`Editar proyecto #${id}`);
+        }
+
+        function deleteProject(id) {
+            if (confirm(`¿Estás seguro de que deseas eliminar el proyecto #${id}?`)) {
+                alert(`Proyecto #${id} eliminado`);
+                // Aquí iría la lógica para eliminar la fila
+            }
+        }
+
+        function addNewRow() {
+            alert('Formulario para agregar nuevo proyecto');
+        }
+
+        // Funciones de paginación
+        function previousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < 3) {
+                currentPage++;
+                updatePagination();
+            }
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const buttons = document.querySelectorAll('.pagination button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const pageButtons = document.querySelectorAll('.pagination button:not(#prevBtn):not(#nextBtn)');
+            pageButtons[currentPage - 1].classList.add('active');
+            
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === 3;
+        }
+
+        // Inicializar
+        updatePagination();
+
+        // Animación de carga
+        window.addEventListener('load', () => {
+            const rows = document.querySelectorAll('.custom-table tbody tr');
+            rows.forEach((row, index) => {
+                row.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>

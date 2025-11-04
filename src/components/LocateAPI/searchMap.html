@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset='UTF-8'>
-    <script type='module'
-        src='https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js'></script>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"
+    ></script>
     <!-- Esto solo es para pruebas, en Filemaker se seguira usando Style -->
-    <!-- <link rel='stylesheet' href='./searchMap.css.css'> -->
-    <style>
+    <link rel='stylesheet' href='./searchMap.css'>
+    <!-- <style>
         /* {{CSS_PLACEHOLDER}} */
-    </style>
+    </style> -->
     <!-- Reealizar preubas con JS -->
-    <!-- <script type='module' src='../../../utils/js/execFileMaker.js'></script>
-    <script type='module' src='../../../utils/js/formatAddress.js'></script>
-    <script type='module' src='../../../utils/js/formatComments.js'></script>
-    <script type='module' src='../../../utils/js/formatTittle.js'></script>
-    <script type='module' src='../js/searchMap.js'></script> -->
+    <script type="module" src="../../../utils/js/execFileMaker.js"></script>
+    <script type="module" src="../../../utils/js/formatAddress.js"></script>
+    <script type="module" src="../../../utils/js/formatComments.js"></script>
+    <script type="module" src="../../../utils/js/formatTittle.js"></script>
+    <script type="module" src="searchMap.js"></script>
     <!-- Esto solo es para pruebas, en Filemaker se seguira usando JS -->
 
-    <script>
+    <!-- <script>
         /* {{JS_PLACEHOLDER}} */
-    </script>
+    </script> -->
+  </head>
 
-</head>
-
-<body>
-    <gmpx-api-loader key='.env-GOOGLE_MAPS_API_KEY'
-        solution-channel='GMP_GE_mapsandplacesautocomplete_v2'>
+  <body>
+    <gmpx-api-loader
+      key="AIzaSyB0PexdMwD6qQPn6QXId60S1C2Nx2g9kUw"
+      solution-channel="GMP_GE_mapsandplacesautocomplete_v2"
+    >
     </gmpx-api-loader>
 
-    <gmp-map center='19.4326,-99.1332' zoom='13' map-id='DEMO_MAP_ID'>
-        <div slot='control-block-start-inline-start'>
-            <gmpx-place-picker placeholder='Buscar dirección...'></gmpx-place-picker>
-        </div>
-        <gmp-advanced-marker></gmp-advanced-marker>
+    <gmp-map center="19.4326,-99.1332" zoom="13" map-id="DEMO_MAP_ID">
+      <div slot="control-block-start-inline-start">
+        <gmpx-place-picker
+          placeholder="Buscar dirección..."
+        ></gmpx-place-picker>
+      </div>
+      <gmp-advanced-marker></gmp-advanced-marker>
     </gmp-map>
-</body>
-
+  </body>
 </html>

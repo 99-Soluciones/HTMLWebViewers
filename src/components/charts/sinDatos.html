@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; 
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        background-color: #f0f0f0; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        box-sizing: border-box;
+      }
+
+      .chart-area {
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        border-radius: 8px;
+        padding: clamp(12px, 3vw, 40px);
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+
+      .no-tasks-message {
+        font-size: clamp(16px, 2.6vw, 22px);
+        font-weight: bold;
+        color: #999999;
+        margin: 0;
+        line-height: 1.1;
+        word-break: break-word;
+      }
+
+      .no-tasks-submessage {
+        font-size: clamp(12px, 1.8vw, 16px);
+        color: #b0b0b0;
+        margin-top: 8px;
+        line-height: 1.2;
+        word-break: break-word;
+      }
+
+
+      @media (max-width: 420px) {
+        .chart-area {
+          padding: 12px;
+          width: calc(100vw - 16px);
+          max-height: calc(100vh - 16px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class='chart-area'>
+      <div>
+        <p class='no-tasks-message'>No hay datos para mostrar</p>
+        <p class='no-tasks-submessage'>
+          Aún no se han registrado tareas cumplidas en este mes.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
