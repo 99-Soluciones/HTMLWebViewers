@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsNumber: ' "& $whatsNumber & "',
         classRecordIDoU: '"& $classRecordIDoU &"',
         contactoNombre: '" & $contactoNombre & "',
-        className: '" & $className &"'
+        className: '" & $className &"',
+        clienteIDU: '" & $clienteIDU & "'
     };
     const options = "& $options &";
 
@@ -33,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsNumber: '5677889900',
         classRecordIDoU: 'Cliente',
         contactoNombre: 'contactoNombre',
-        className: 'Cliente'
+        className: 'Cliente',
+        clienteIDU: '3BHJ4HJK4HJK43HJ4KJHJKH34'
     }
     const options = [
         { option: 'Texto', key: 'text', action: 'text' },

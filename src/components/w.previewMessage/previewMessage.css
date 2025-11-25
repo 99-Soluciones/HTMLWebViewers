@@ -33,9 +33,11 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 12px;
 }
 
-#copyButton {
+/* Base styles for both buttons */
+.controls button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,7 +55,7 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 0 12px;
 }
 
-#copyButton svg {
+.controls button svg {
     width: 28px;
     height: 28px;
     flex-shrink: 0;
@@ -61,7 +63,7 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     transition: margin 0.4s ease;
 }
 
-#copyButton .button-text {
+.controls button .button-text {
     white-space: nowrap;
     opacity: 0;
     max-width: 0;
@@ -72,29 +74,38 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     flex: 0 0 auto;
 }
 
-#copyButton:hover {
+.controls button:hover {
     width: 165px;
     border-radius: 100px;
     justify-content: flex-start;
     padding-left: 15px;
 }
 
-#copyButton:hover svg {
+.controls button:hover svg {
     margin-right: 10px;
 }
 
-#copyButton:hover .button-text {
+.controls button:hover .button-text {
     opacity: 1;
     max-width: 140px;
     margin-left: 0;
 }
 
-#copyFeedback {
-    margin-left: 15px;
-    color: #34c759;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+#sendButton {
+    background-color: #25d365;
+}
+
+#sendButton:hover {
+    background-color: #1da851;
+}
+
+#aiButton {
+    background-color: #007AFF;
+}
+
+#aiButton:hover {
+    background-color: #0056b3;
+    width: 180px;
 }
 
 /*--- close.button.css ---*/

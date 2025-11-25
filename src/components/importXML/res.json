@@ -1,0 +1,158 @@
+{
+  "@attributes": {
+    "xmlns:cfdi": "http://www.sat.gob.mx/cfd/4",
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xsi:schemaLocation": "http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd",
+    "Version": "4.0",
+    "Serie": "F",
+    "Folio": "7",
+    "Fecha": "2025-10-15T17:41:04",
+    "TipoDeComprobante": "I",
+    "NoCertificado": "30001000000500003447",
+    "CondicionesDePago": "Pago de Contado",
+    "FormaPago": "99",
+    "Exportacion": "01",
+    "SubTotal": "1431.67",
+    "Moneda": "USD",
+    "TipoCambio": "18.44",
+    "Total": "2100.83",
+    "MetodoPago": "PPD",
+    "LugarExpedicion": "01160",
+    "Sello": "DT80xlNQsADKC1W18j3ptZl01JfZnvRLZSVnldFh8lJn19b334UEKmJhO6GImRJo3tfFVMrniNEqruSaugylLFQSXsoWQO+OHkb+5Za9t+oOHPcM06W2ua6i0WDXGHVivlg0ewms64VPltBkLMUhDtYvYPgH5wCE+vEVXlY9Gwm1Dmgyx1dOOv5tFpSRw0qbT6uUy1V9X28i9yoY1FG9E+nkAsmcN4Jnlk8PimD4m+9hLda0TsaEC4npN5Bz68hPKC9aONzGQBo+gSiAefgPl6xkvaxZL9PejOPMqENkqKZM6RkNrlQrZciRp3I0jBFVaR4bxVy31zs377KlGr1R2w==",
+    "Certificado": "MIIFjDCCA3SgAwIBAgIUMzAwMDEwMDAwMDA1MDAwMDM0NDcwDQYJKoZIhvcNAQELBQAwggErMQ8wDQYDVQQDDAZBQyBVQVQxLjAsBgNVBAoMJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExGjAYBgNVBAsMEVNBVC1JRVMgQXV0aG9yaXR5MSgwJgYJKoZIhvcNAQkBFhlvc2Nhci5tYXJ0aW5lekBzYXQuZ29iLm14MR0wGwYDVQQJDBQzcmEgY2VycmFkYSBkZSBjYWxpejEOMAwGA1UEEQwFMDYzNzAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBDSVVEQUQgREUgTUVYSUNPMREwDwYDVQQHDAhDT1lPQUNBTjERMA8GA1UELRMIMi41LjQuNDUxJTAjBgkqhkiG9w0BCQITFnJlc3BvbnNhYmxlOiBBQ0RNQS1TQVQwHhcNMjMwNTE4MTQ1ODU2WhcNMjcwNTE4MTQ1ODU2WjCBszEhMB8GA1UEAxMYQURSSUFOQSBKVUFSRVogRkVSTkFOREVaMSEwHwYDVQQpExhBRFJJQU5BIEpVQVJFWiBGRVJOQU5ERVoxITAfBgNVBAoTGEFEUklBTkEgSlVBUkVaIEZFUk5BTkRFWjEWMBQGA1UELRMNSlVGQTc2MDgyMTJWNjEbMBkGA1UEBRMSSlVGQTc2MDgyMU1ER1JSRDA0MRMwEQYDVQQLEwpTdWN1cnNhbCAyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArQ7IYwmWJKDMnF5PeoPYtqMpY9tFo/XUk8WRBM0yiyZXjxHi2bNpmWJyJcz2AyXWIRqqrQkeoTU24S9c+OPjwWwG1jZob9aqvsTD3hgESLPu959prP9efL0Gm8hlK88DgJejiGmprc280b5xM9q3zN6VdugFGRUNxAPyx3JsgtMFg8lboskYhhMgue5gbYljtBwUlZfQ9NXInoUYwkz6S7yGDNXP8oo7rni+NZ1Zh+JnHVvGecT3PgTms5hkh6ZQRhfDEwzH5wcI9aVm6ItAL5wuExWpGuQgKHeL6Rtf3FOWx8tjgPl3hIGWotVrrKa4bupogSnBHnBl/FnpML595QIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQsFAAOCAgEAjB2X6MVjGVUL7x6+IGqVUdU7K1Wf3UvMKpeoHNKqTk14vlDHNn4ZghataMP17G087rDX+PhQmzHImcvcf4k5t67AG2zyu0nMIBkkhd+dzDQME8Wr43MngK1ExhwNWOalrl4RnNZEX7y0YEm+w0C6AdOFZiYOZM2EoA25Kgcx2mLaSMj48VOiAu/qNkQwQGS+tCItwmHvzX9bPJMnk3gNoaWnJ/oKDX0RzEkoAG8UbPcK5AbOt4VcF8/52a9WmamuscyM+I6HnIbDg2a+JkC/04YgKSLKftjnbbE+lhQV1juS7WaayvYoNSfdT4j4P4NEghET3gF447jr5Xmlz0Gw4Yk9WgVSL5tj6aL2pMhte7j+vG0p7wlj6zUBFOV9PiD4Nd/A2/w89Ms2oAkVfutoh84fs5Be9jRIf0NbvLFg06RRJUgnGtOZcDpb/KP/RfarKCfhGWgQBglcaESyeSZMcV6j/donEq7ELx3yAsz0+ztIhaqB+bQel6Xtar3sGp29e7tgvXvrhEpsx7ktQcNktJBQ3vzavGU/E4VRDU5RgDgodwm9ZNVz8I0d4DZnyXfAMgtQCGDlRchw7I3Z1mPF1P7tmtekuxOGYE2FGBRU0TGVBhzo/U5NKVtzT7mGcwYOfXdHaQQMpEKprwwWLmD3gWy7bOimjF9DTcu+ks4dcbk="
+  },
+  "cfdi:Emisor": {
+    "@attributes": {
+      "Rfc": "JUFA7608212V6",
+      "Nombre": "ADRIANA JUAREZ FERNANDEZ",
+      "RegimenFiscal": "612"
+    }
+  },
+  "cfdi:Receptor": {
+    "@attributes": {
+      "Rfc": "XEXX010101000",
+      "Nombre": "[MOSTRADOR] LOS FORASTEROS",
+      "RegimenFiscalReceptor": "616",
+      "DomicilioFiscalReceptor": "01160",
+      "UsoCFDI": "S01"
+    }
+  },
+  "cfdi:Conceptos": {
+    "cfdi:Concepto": [
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202201",
+          "Unidad": "pza",
+          "Cantidad": "570",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Jabalí - Bock - Botella 330ml - [JBO01] pza",
+          "ValorUnitario": "1.193058",
+          "Importe": "680.043060",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": [
+              {
+                "@attributes": {
+                  "Base": "860.254881",
+                  "Impuesto": "002",
+                  "TipoFactor": "Tasa",
+                  "TasaOCuota": "0.160000",
+                  "Importe": "137.640781"
+                }
+              },
+              {
+                "@attributes": {
+                  "Base": "680.043384",
+                  "Impuesto": "003",
+                  "TipoFactor": "Tasa",
+                  "TasaOCuota": "0.265000",
+                  "Importe": "180.211497"
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202201",
+          "Unidad": "pza",
+          "Cantidad": "630",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Jabalí - Bock - Botella 330ml - [JBO01] pza",
+          "ValorUnitario": "1.193058",
+          "Importe": "751.626540",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": [
+              {
+                "@attributes": {
+                  "Base": "950.808026",
+                  "Impuesto": "002",
+                  "TipoFactor": "Tasa",
+                  "TasaOCuota": "0.160000",
+                  "Importe": "152.129284"
+                }
+              },
+              {
+                "@attributes": {
+                  "Base": "751.626898",
+                  "Impuesto": "003",
+                  "TipoFactor": "Tasa",
+                  "TasaOCuota": "0.265000",
+                  "Importe": "199.181128"
+                }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "cfdi:Impuestos": {
+    "@attributes": {
+      "TotalImpuestosTrasladados": "669.16"
+    },
+    "cfdi:Traslados": {
+      "cfdi:Traslado": [
+        {
+          "@attributes": {
+            "Base": "1811.06",
+            "Impuesto": "002",
+            "TipoFactor": "Tasa",
+            "TasaOCuota": "0.160000",
+            "Importe": "289.77"
+          }
+        },
+        {
+          "@attributes": {
+            "Base": "1431.67",
+            "Impuesto": "003",
+            "TipoFactor": "Tasa",
+            "TasaOCuota": "0.265000",
+            "Importe": "379.39"
+          }
+        }
+      ]
+    }
+  },
+  "cfdi:Complemento": {
+    "tfd:TimbreFiscalDigital": {
+      "@attributes": {
+        "xmlns:tfd": "http://www.sat.gob.mx/TimbreFiscalDigital",
+        "xsi:schemaLocation": "http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd",
+        "Version": "1.1",
+        "UUID": "7742482e-5e51-494e-89a1-4bf741aceb7a",
+        "FechaTimbrado": "2025-10-15T17:44:20",
+        "RfcProvCertif": "SPR190613I52",
+        "SelloCFD": "DT80xlNQsADKC1W18j3ptZl01JfZnvRLZSVnldFh8lJn19b334UEKmJhO6GImRJo3tfFVMrniNEqruSaugylLFQSXsoWQO+OHkb+5Za9t+oOHPcM06W2ua6i0WDXGHVivlg0ewms64VPltBkLMUhDtYvYPgH5wCE+vEVXlY9Gwm1Dmgyx1dOOv5tFpSRw0qbT6uUy1V9X28i9yoY1FG9E+nkAsmcN4Jnlk8PimD4m+9hLda0TsaEC4npN5Bz68hPKC9aONzGQBo+gSiAefgPl6xkvaxZL9PejOPMqENkqKZM6RkNrlQrZciRp3I0jBFVaR4bxVy31zs377KlGr1R2w==",
+        "NoCertificadoSAT": "30001000000500003456",
+        "SelloSAT": "b23YMB0lgOCPgpFMLxT9dWT69DIMlx566NSgzoNfx/Kbln8b9Dcn140wmoKoEEJplbea1r78LKDg6UN/vwrBXaQgj5XUNzflJtOBc0mgN5ySrnb0sAWWO+xzEnkgIK6D5sbhNLhOJL7cc7ocBQ3DR94oQhPWscD7EjXaWTgQGCC7DlR/JdhMuOR9AvjVwJ4H/uH2MQ0KxxX39r870zB/Y9Up+bVY90jt+J6oycV2yAvzAeLgFnDPIOe9KH5V6dCncePCEyqHzfFqGT8cs486nwjiFrZY3SXjZa35j28kn/ipOXJHXjTGuo3xMWyqpA+gtCUxuWKFlf3MAxnK2sA8Og=="
+      }
+    }
+  }
+}

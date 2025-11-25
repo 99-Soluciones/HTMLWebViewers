@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset='utf-logo-8'></head>
+<body>
+    <h1>Ejemplo de Importación XML</h1>
+<script>
+    /**
+     * Esta función es llamada por FileMaker con el contenido XML como texto.
+     * @param {string} xmlTexto - El contenido XML en formato de texto.
+     */
+    function convertirXML(xmlTexto) {
+        try {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlTexto, 'application/xml');
+            
+            const errorNode = xmlDoc.querySelector('parsererror');
+            if (errorNode) {
+                throw new Error('Error de parseo XML: ' + errorNode.innerText);
+            }
+
+            const resultadoJSON = xmlNodeToJSON(xmlDoc.documentElement);
+
+            const jsonString = JSON.stringify(resultadoJSON, null, 2);
+
+            console.log(jsonString);
+
+            if (typeof FileMaker !== 'undefined') {
+                FileMaker.PerformScript('Callback_RecibirJSON', jsonString);
+            }       
+        } catch (e) {
+            if (typeof FileMaker !== 'undefined') {
+                console.error('FileMaker no está definido. No se puede devolver el error:', e);
+                return;
+            }
+            FileMaker.PerformScript(
+                'Callback_RecibirJSON',
+                JSON.stringify({ 'error': e.message })
+            );
+        }
+    }
+
+    /**
+     * Funcion que convierte un nodo XML a un objeto JSON.
+     * @param {Node} node - El nodo XML actual.
+     */
+    function xmlNodeToJSON(node) {
+        let obj = {};
+
+        // 1. Manejar el nodo actual
+        if (node.nodeType === Node.ELEMENT_NODE) { // Es una etiqueta <...>
+            
+            // 2. Copiar los atributos
+            if (node.attributes.length > 0) {
+                obj['@attributes'] = {};
+                for (let j = 0; j < node.attributes.length; j++) {
+                    const attribute = node.attributes.item(j);
+                    obj['@attributes'][attribute.nodeName] = attribute.nodeValue;
+                }
+            }
+
+        } else if (node.nodeType === Node.TEXT_NODE) { // Es texto simple
+            const text = node.nodeValue.trim();
+            if (text) {
+                return text; 
+            }
+        }
+
+        // 3. Manejar los hijos
+        if (node.hasChildNodes()) {
+            for (let i = 0; i < node.childNodes.length; i++) {
+                const item = node.childNodes.item(i);
+                const nodeName = item.nodeName;
+
+                if (item.nodeType === Node.COMMENT_NODE || 
+                   (item.nodeType === Node.TEXT_NODE && !item.nodeValue.trim())) {
+                    continue;
+                }
+
+                const childJson = xmlNodeToJSON(item);
+
+                if (typeof obj[nodeName] == 'undefined') {
+                    // Si es el primero, lo añade
+                    obj[nodeName] = childJson;
+                } else {
+                    // Si ya existe, lo convierte en array
+                    if (!Array.isArray(obj[nodeName])) {
+                        obj[nodeName] = [obj[nodeName]]; 
+                    }
+                    obj[nodeName].push(childJson); 
+                }
+            }
+        }
+
+        // Limpieza: Si un nodo solo tiene texto, simplificarlo.
+        if (obj['#text'] && Object.keys(obj).   ength === 1) {
+            return obj['#text'];
+        }
+        // Limpieza: Si un nodo tiene atributos y texto, combinarlos.
+        if (obj['#text'] && obj['@attributes']) {
+             obj['_text'] = obj['#text'];
+             delete obj['#text'];
+        }
+
+        return obj;
+    }
+
+</script>
+</body>
+</html>

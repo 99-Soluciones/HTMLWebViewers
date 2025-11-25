@@ -1,13 +1,13 @@
-/*
-import { execFileMaker } from '../../../utils/execFileMaker.js';
-*/
+
+// import { execFileMaker } from '../../../utils/execFileMaker.js';
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- DOM Elements ---*/
     const textEditor = document.getElementById('textEditor');
-    const copyButton = document.getElementById('copyButton');
+    const sendButton = document.getElementById('sendButton');
+    const aiButton = document.getElementById('aiButton');
     const btnClose = document.getElementById('btnClose');
-    const copyFeedback = document.getElementById('copyFeedback');
 
     /* --- Data ---*/
     textEditor.value = `" & $msg & "`;
@@ -25,11 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
      * Createe JSON to decide how to prooced (close WebViewer or open WhatsApp Chat)
      * @param {string} callType - Type action 
      */
-    function createJSONData(callType) {
+    function createJSONData(callType, message) {
         /* --- Data Example Test ---*/
         /*
         data = {
             whatsNumber: '5656998800',
+            contactoNombre: 'Contacto Nombre',
+            contactoIDU: '3BHJ4HJK4HJK43HJ4KJHJKH34',
             classRecordIDoU: '9000',
             isWebApp: 'APP',
             callType: callType,
@@ -37,11 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         */
         data = {
+            contactoNombre: ' " & $contactoNombre &"',
+            contactoIDU: ' " & $clienteIDU & "',
             whatsNumber: ' " & $whatsNumber &"',
             classRecordIDoU: '"& $classRecordIDoU &"',
             isWebApp: ' " & $isWebApp &"',
             callType: callType,
-            className: '" & $className &"'
+            className: '" & $className &"',
+            message: message
         };
         if (callType === 'closeDiv') execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
         else setTimeout(() => { execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2') }, 1500);
@@ -51,25 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         createJSONData('closeDiv');
     });
 
-    copyButton.addEventListener('click', () => {
-        navigator.clipboard
-            .writeText(textEditor.value)
-            .then(() => {
-                copyFeedback.textContent = '¡Copiado!';
-                copyFeedback.style.opacity = 1;
-                setTimeout(() => {
-                    copyFeedback.style.opacity = 0;
-                }, 2000);
-            })
-            .catch((err) => {
-                console.error('Error al copiar: ', err);
-                copyFeedback.textContent = 'Error';
-                copyFeedback.style.color = 'red';
-                copyFeedback.style.opacity = 1;
-            });
+    /* Send Button: Execute FileMaker script to open WhatsApp */
+    sendButton.addEventListener('click', () => {
+        createJSONData('OpenWhatsApp', textEditor.value);
+    });
 
-        createJSONData('OpenWhatsApp');
-
+    /* AI Improve Button: Execute FileMaker script to improve message */
+    aiButton.addEventListener('click', () => {
+        createJSONData('ImproveWithAI', textEditor.value);
     });
 
 });

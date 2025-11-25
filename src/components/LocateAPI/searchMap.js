@@ -83,13 +83,17 @@ async function loadGoogleMaps() {
  */
 async function init() {
   try {
-    const { Place } = await loadGoogleMaps();
+    
 
     await customElements.whenDefined("gmp-map");
     const map = document.querySelector("gmp-map");
     const marker = document.querySelector("gmp-advanced-marker");
     const placePicker = document.querySelector("gmpx-place-picker");
+
+    await map.gmpxReady;
+    
     const infowindow = new google.maps.InfoWindow();
+    const { Place } = await loadGoogleMaps();
 
     if (
       (coordinates && coordinates.lat && coordinates.lng) ||
@@ -164,6 +168,8 @@ async function init() {
             "websiteURI",
           ],
         });
+
+        console.log(placeData);
 
         const details = {
           internationalPhoneNumber: placeData.internationalPhoneNumber || "",

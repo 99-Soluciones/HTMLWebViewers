@@ -1,0 +1,424 @@
+{
+  "@attributes": {
+    "xmlns:cfdi": "http://www.sat.gob.mx/cfd/4",
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xsi:schemaLocation": "http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd",
+    "Version": "4.0",
+    "Serie": "A",
+    "Folio": "31142",
+    "Fecha": "2025-10-24T14:18:39",
+    "TipoDeComprobante": "I",
+    "NoCertificado": "00001000000713221930",
+    "CondicionesDePago": "Pago de Contado",
+    "FormaPago": "99",
+    "Exportacion": "01",
+    "SubTotal": "131683.20",
+    "Moneda": "MXN",
+    "Total": "152752.51",
+    "MetodoPago": "PPD",
+    "LugarExpedicion": "03100",
+    "Sello": "rngVtrjwcq51m39avunHSwzrAFs4yGxOQV1tASgkAJnntEEwfvicKnVCNqYzl8M3D4eybE7zVvJ6cM8zFuCufdgya1sPQPE3Gt7UXHxwBsW2iSi8cTXrylNHvYRLGfzDIkg7VVyYuX4xDs0W8bGpeZ7i4JNi4+A44ohJASciY3e1Q4G/xa9JBoc/CsQRXXJT0uM69w0xGSDBvUBsazEMcFSZXsvecCKqdkFPSsXOs3p4huoGy1UODv5PQ/ygFFKYrGKXOzX5eMoXX1rOq8gUo+4L+zjKaCJsGvE3/fsbeJQRVh17D3AH1hF0JsaqZ6PBds72Y5+LaF+dQLAsJFcXCg==",
+    "Certificado": "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"
+  },
+  "cfdi:Emisor": {
+    "@attributes": {
+      "Rfc": "PFL170418VB7",
+      "Nombre": "PROYECTOS FLX",
+      "RegimenFiscal": "601"
+    }
+  },
+  "cfdi:Receptor": {
+    "@attributes": {
+      "Rfc": "TSO991022PB6",
+      "Nombre": "TIENDAS SORIANA",
+      "DomicilioFiscalReceptor": "64610",
+      "RegimenFiscalReceptor": "601",
+      "UsoCFDI": "G01"
+    }
+  },
+  "cfdi:Conceptos": {
+    "cfdi:Concepto": [
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202300",
+          "Unidad": "pza",
+          "Cantidad": "43",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Felix - Schorle Maracuyá Veracruz - Caja 24 pzas - Botella - [101179034] pza",
+          "ValorUnitario": "612.480000",
+          "Importe": "26336.640000",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": {
+              "@attributes": {
+                "Base": "26336.640000",
+                "Impuesto": "002",
+                "TipoFactor": "Tasa",
+                "TasaOCuota": "0.160000",
+                "Importe": "4213.862400"
+              }
+            }
+          }
+        }
+      },
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202300",
+          "Unidad": "pza",
+          "Cantidad": "43",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Felix - Schorle Frambuesa Jalisco - Caja 24 pzas - Botella - [101179036] pza",
+          "ValorUnitario": "612.480000",
+          "Importe": "26336.640000",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": {
+              "@attributes": {
+                "Base": "26336.640000",
+                "Impuesto": "002",
+                "TipoFactor": "Tasa",
+                "TasaOCuota": "0.160000",
+                "Importe": "4213.862400"
+              }
+            }
+          }
+        }
+      },
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202300",
+          "Unidad": "pza",
+          "Cantidad": "43",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Felix - Schorle Manzana Chihuahua - Caja 24 pzas - Botella - [101179030] pza",
+          "ValorUnitario": "612.480000",
+          "Importe": "26336.640000",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": {
+              "@attributes": {
+                "Base": "26336.640000",
+                "Impuesto": "002",
+                "TipoFactor": "Tasa",
+                "TasaOCuota": "0.160000",
+                "Importe": "4213.862400"
+              }
+            }
+          }
+        }
+      },
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202300",
+          "Unidad": "pza",
+          "Cantidad": "43",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Felix - Schorle Guayaba Michoacán - Caja 24 pzas - Botella - [101179027] pza",
+          "ValorUnitario": "612.480000",
+          "Importe": "26336.640000",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": {
+              "@attributes": {
+                "Base": "26336.640000",
+                "Impuesto": "002",
+                "TipoFactor": "Tasa",
+                "TasaOCuota": "0.160000",
+                "Importe": "4213.862400"
+              }
+            }
+          }
+        }
+      },
+      {
+        "@attributes": {
+          "ClaveProdServ": "50202300",
+          "Unidad": "pza",
+          "Cantidad": "43",
+          "ClaveUnidad": "H87",
+          "Descripcion": "Felix - Schorle Mandarina Colima - Caja 24 pzas - Botella - [101179032] pza",
+          "ValorUnitario": "612.480000",
+          "Importe": "26336.640000",
+          "ObjetoImp": "02"
+        },
+        "cfdi:Impuestos": {
+          "cfdi:Traslados": {
+            "cfdi:Traslado": {
+              "@attributes": {
+                "Base": "26336.640000",
+                "Impuesto": "002",
+                "TipoFactor": "Tasa",
+                "TasaOCuota": "0.160000",
+                "Importe": "4213.862400"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "cfdi:Impuestos": {
+    "@attributes": {
+      "TotalImpuestosTrasladados": "21069.31"
+    },
+    "cfdi:Traslados": {
+      "cfdi:Traslado": {
+        "@attributes": {
+          "Base": "131683.2",
+          "Impuesto": "002",
+          "TipoFactor": "Tasa",
+          "TasaOCuota": "0.160000",
+          "Importe": "21069.31"
+        }
+      }
+    }
+  },
+  "cfdi:Complemento": {
+    "tfd:TimbreFiscalDigital": {
+      "@attributes": {
+        "xmlns:tfd": "http://www.sat.gob.mx/TimbreFiscalDigital",
+        "xsi:schemaLocation": "http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd",
+        "Version": "1.1",
+        "UUID": "8ec9f9da-b8e5-4679-9757-52f3ca799dce",
+        "FechaTimbrado": "2025-10-24T14:22:39",
+        "RfcProvCertif": "LSO1306189R5",
+        "SelloCFD": "rngVtrjwcq51m39avunHSwzrAFs4yGxOQV1tASgkAJnntEEwfvicKnVCNqYzl8M3D4eybE7zVvJ6cM8zFuCufdgya1sPQPE3Gt7UXHxwBsW2iSi8cTXrylNHvYRLGfzDIkg7VVyYuX4xDs0W8bGpeZ7i4JNi4+A44ohJASciY3e1Q4G/xa9JBoc/CsQRXXJT0uM69w0xGSDBvUBsazEMcFSZXsvecCKqdkFPSsXOs3p4huoGy1UODv5PQ/ygFFKYrGKXOzX5eMoXX1rOq8gUo+4L+zjKaCJsGvE3/fsbeJQRVh17D3AH1hF0JsaqZ6PBds72Y5+LaF+dQLAsJFcXCg==",
+        "NoCertificadoSAT": "00001000000509846663",
+        "SelloSAT": "Y1zEORnAscw0+V+V4zfkb2ldvxpglG2vatAgpLcajskqCpDw712F0kRkqclQuFl2Bb08SLISZP/CCRdTn2iGAmNCkRcXI4Z/JUXV5LI161fNu49tOA+w6phvgfCMCPQiho9G2YBhHpsAXhx272mrbFYLz/XalRjqiycI+GgsLunXBkUAxapAUos/jrPkPbU63sbeYaqA6ZK6gM5+Dtzhqjj1GL9hLQsmSUgJJh+Fe/dB5AFz5EgPaufmV3Pn4DGfzfR8j6iGFNo6dKFFB4IBg3BJYP2cRpyF328T86F8eQf0yjHB5tIcOUGxalC0suRXIh+EkYllfROEpXKgPNQF3w=="
+      }
+    }
+  },
+  "cfdi:Addenda": {
+    "DSCargaRemisionProv": {
+      "Remision": {
+        "@attributes": {
+          "Id": "Remision0",
+          "RowOrder": "0"
+        },
+        "Proveedor": "25799",
+        "Remision": "A-31142",
+        "Consecutivo": "0",
+        "FechaRemision": "2025-10-24",
+        "Tienda": "5537",
+        "TipoMoneda": "1",
+        "TipoBulto": "1",
+        "EntregaMercancia": "5537",
+        "CumpleReqFiscales": "true",
+        "CantidadBultos": "215.00",
+        "Subtotal": "131683.200000",
+        "Descuentos": "0.00",
+        "IEPS": "0.00",
+        "IVA": "21069.31",
+        "OtrosImpuestos": "0.00",
+        "Total": "152752.51",
+        "CantidadPedidos": "1",
+        "FechaEntregaMercancia": "2025-10-30",
+        "EmpaqueEnCajas": "true",
+        "EmpaqueEnTarimas": "true",
+        "CantidadCajasTarimas": "3",
+        "Cita": "1000445955"
+      },
+      "Pedidos": {
+        "@attributes": {
+          "Id": "Pedidos0",
+          "RowOrder": "0"
+        },
+        "Proveedor": "25799",
+        "Remision": "A-31142",
+        "FolioPedido": "0135161391",
+        "Tienda": "5537",
+        "CantidadArticulos": "5"
+      },
+      "Articulos": [
+        {
+          "@attributes": {
+            "Id": "Articulos0",
+            "RowOrder": "0"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "Tienda": "5537",
+          "Codigo": "7500462969622",
+          "CantidadUnidadCompra": "43.00",
+          "CostoNetoUnidadCompra": "612.480000",
+          "PorcentajeIEPS": "0.00",
+          "PorcentajeIVA": "16.00"
+        },
+        {
+          "@attributes": {
+            "Id": "Articulos1",
+            "RowOrder": "1"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "Tienda": "5537",
+          "Codigo": "7500462969646",
+          "CantidadUnidadCompra": "43.00",
+          "CostoNetoUnidadCompra": "612.480000",
+          "PorcentajeIEPS": "0.00",
+          "PorcentajeIVA": "16.00"
+        },
+        {
+          "@attributes": {
+            "Id": "Articulos2",
+            "RowOrder": "2"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "Tienda": "5537",
+          "Codigo": "7500462969608",
+          "CantidadUnidadCompra": "43.00",
+          "CostoNetoUnidadCompra": "612.480000",
+          "PorcentajeIEPS": "0.00",
+          "PorcentajeIVA": "16.00"
+        },
+        {
+          "@attributes": {
+            "Id": "Articulos3",
+            "RowOrder": "3"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "Tienda": "5537",
+          "Codigo": "7500462969615",
+          "CantidadUnidadCompra": "43.00",
+          "CostoNetoUnidadCompra": "612.480000",
+          "PorcentajeIEPS": "0.00",
+          "PorcentajeIVA": "16.00"
+        },
+        {
+          "@attributes": {
+            "Id": "Articulos4",
+            "RowOrder": "4"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "Tienda": "5537",
+          "Codigo": "7500462969639",
+          "CantidadUnidadCompra": "43.00",
+          "CostoNetoUnidadCompra": "612.480000",
+          "PorcentajeIEPS": "0.00",
+          "PorcentajeIVA": "16.00"
+        }
+      ],
+      "CajasTarimas": [
+        {
+          "@attributes": {
+            "Id": "CajaTarima0",
+            "RowOrder": "0"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "NumeroCajaTarima": "1",
+          "CodigoBarraCajaTarima": "750046296229620250",
+          "SucursalDistribuir": "5537",
+          "CantidadArticulos": "5"
+        },
+        {
+          "@attributes": {
+            "Id": "CajaTarima1",
+            "RowOrder": "1"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "NumeroCajaTarima": "2",
+          "CodigoBarraCajaTarima": "750046296229620251",
+          "SucursalDistribuir": "5537",
+          "CantidadArticulos": "5"
+        },
+        {
+          "@attributes": {
+            "Id": "CajaTarima2",
+            "RowOrder": "2"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "NumeroCajaTarima": "3",
+          "CodigoBarraCajaTarima": "750046296229620252",
+          "SucursalDistribuir": "5537",
+          "CantidadArticulos": "5"
+        }
+      ],
+      "ArticulosPorCajaTarima": [
+        {
+          "@attributes": {
+            "Id": "ArticulosPorCajaTarima0",
+            "RowOrder": "0"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "NumeroCajaTarima": "1",
+          "SucursalDistribuir": "5537",
+          "Codigo": "7500462969622",
+          "CantidadUnidadCompra": "43.00"
+        },
+        {
+          "@attributes": {
+            "Id": "ArticulosPorCajaTarima1",
+            "RowOrder": "1"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "NumeroCajaTarima": "1",
+          "SucursalDistribuir": "5537",
+          "Codigo": "7500462969646",
+          "CantidadUnidadCompra": "43.00"
+        },
+        {
+          "@attributes": {
+            "Id": "ArticulosPorCajaTarima2",
+            "RowOrder": "2"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "NumeroCajaTarima": "1",
+          "SucursalDistribuir": "5537",
+          "Codigo": "7500462969608",
+          "CantidadUnidadCompra": "43.00"
+        },
+        {
+          "@attributes": {
+            "Id": "ArticulosPorCajaTarima3",
+            "RowOrder": "3"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "NumeroCajaTarima": "1",
+          "SucursalDistribuir": "5537",
+          "Codigo": "7500462969615",
+          "CantidadUnidadCompra": "43.00"
+        },
+        {
+          "@attributes": {
+            "Id": "ArticulosPorCajaTarima4",
+            "RowOrder": "4"
+          },
+          "Proveedor": "25799",
+          "Remision": "A-31142",
+          "FolioPedido": "0135161391",
+          "NumeroCajaTarima": "1",
+          "SucursalDistribuir": "5537",
+          "Codigo": "7500462969639",
+          "CantidadUnidadCompra": "43.00"
+        }
+      ]
+    }
+  }
+}
