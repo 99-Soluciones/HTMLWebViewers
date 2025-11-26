@@ -62,31 +62,30 @@ function csvToJson(csv) {
             let helperVal = currentline[helperIndex].trim();
 
            /**
-            * Verificamos si ya existe un ítem con la misma clave única y auxiliar
-            * La condicion valida si existe el SKU y si el precio es el mismo
-            */  
-            if (dataMap[keyVal] && dataMap[keyVal][colHelper] === helperVal) {
+            * Creamos una clave compuesta para agrupar por SKU + Precio
+            * Esto permite mantener ítems separados cuando tienen diferente precio
+            * Usamos '|||' como delimitador para evitar colisiones con valores que contengan '_'
+            */
+            let compositeKey = keyVal + '|||' + helperVal;
+
+            if (dataMap[compositeKey]) {
                 if (sumIndex > -1) {
                     /* Convertimos los valores a números y sumamos */
-                    let oldQty = parseFloat(dataMap[keyVal][colToSum]) || 0;
+                    let oldQty = parseFloat(dataMap[compositeKey][colToSum]) || 0;
                     let newQty = parseFloat(obj[colToSum]) || 0;
 
                     /* Actualizamos la cantidad sumada en el mapa */
-                    dataMap[keyVal][colToSum] = (oldQty + newQty).toString();
+                    dataMap[compositeKey][colToSum] = (oldQty + newQty).toString();
                 }
             } else {
                /* --- Si no existe, agregamos el nuevo ítem al mapa --- */
-                dataMap[keyVal] = obj;
+                dataMap[compositeKey] = obj;
             }
         } else {
             // Si no se configuró bien la columna única, guardamos todo sin agrupar (fallback)
             // Usamos 'i' como clave falsa para que no se pierda nada
             dataMap['row_' + i] = obj;
         }
-
-
-
-
     }
     let result = Object.values(dataMap);
 
