@@ -1,6 +1,8 @@
 
 // import { execFileMaker } from '../../../utils/execFileMaker.js';
 
+import { execFileMaker } from "../../../utils/js/execFileMaker";
+
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- DOM Elements ---*/
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         */
         data = {
             contactoNombre: ' " & $contactoNombre &"',
-            contactoIDU: ' " & $clienteIDU & "',
+            contactoIDU: ' " & $contactoIDU & "',
             whatsNumber: ' " & $whatsNumber &"',
             classRecordIDoU: '"& $classRecordIDoU &"',
             isWebApp: ' " & $isWebApp &"',
@@ -48,8 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             className: '" & $className &"',
             message: message
         };
-        if (callType === 'closeDiv') execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
-        else setTimeout(() => { execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2') }, 1500);
+        if (callType === 'ImproveWithAI') execFileMaker(data, 'api.WhatsApp ## msg.IACallAPI[js]|v0.25.3');
+        else  execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
     }
 
     btnClose.addEventListener('click', () => {
