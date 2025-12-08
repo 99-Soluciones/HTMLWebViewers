@@ -15,7 +15,15 @@ body {
     min-height: 100vh;
 }
 
+.buttons-container {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0 16px;
+    justify-content: center;
+    align-items: center;
+}
 
+#btnCustom,
 #btnBlank {
     width: 200px;
     height: 40px;
@@ -28,14 +36,16 @@ body {
     background-repeat: no-repeat;
     background-position: 16px center;
     background-size: 29px 29px;
-    margin: 12px auto 24px;
+    margin: 0;
     font-size: 14px;
     display: block;
     text-align: left;
     transition: all 0.3s ease;
     box-shadow: 0 8px 0 rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
+#btnCustom:hover,
 #btnBlank:hover {
     background-color: var(--wa);
     color: #fff;

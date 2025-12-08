@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ddMenu = document.getElementById('ddMenu');
     const ddLabel = document.getElementById('ddLabel');
     const btnClose = document.getElementById('btnClose');
+    const btnCustomFM = document.getElementById('btnCustom');
     const btnBlankFM = document.getElementById('btnBlank');
 
     /* --- Data --- */
@@ -93,6 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     btnClose.addEventListener('click', () => sendTypeMessagge('closeDiv'));
+    btnCustomFM.addEventListener('click', () =>
+        sendTypeMessagge('customMessage', '')
+    );
     btnBlankFM.addEventListener('click', () =>
         sendTypeMessagge('openWhatsApp', '')
     );
