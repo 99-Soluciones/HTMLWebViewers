@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.getElementById('sendButton');
     const aiButton = document.getElementById('aiButton');
     const btnClose = document.getElementById('btnClose');
+    const loadingMessage = document.getElementById('loadingMessage');
 
     /* --- Data ---*/
     textEditor.value = `" & $msg & "`;
@@ -48,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             className: '" & $className &"',
             message: message
         };
-        if (callType === 'closeDiv') execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
-        else setTimeout(() => { execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2') }, 1500);
+         if (callType === 'ImproveWithAI') execFileMaker(data, 'api.WhatsApp ## msg.IACallAPI[js]|v0.25.3');
+        else execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
     }
 
     btnClose.addEventListener('click', () => {
@@ -63,7 +64,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* AI Improve Button: Execute FileMaker script to improve message */
     aiButton.addEventListener('click', () => {
+        // Mostrar mensaje de carga
+        loadingMessage.style.display = 'flex';
+        aiButton.disabled = true;
+        aiButton.style.opacity = '0.6';
+
+        sendButton.disabled = true;
+        sendButton.style.opacity = '0.6';
+        
         createJSONData('ImproveWithAI', textEditor.value);
+        
+        // Ocultar mensaje de carga (descomentar si se necesita ocultar después de respuesta)
+        // loadingMessage.style.display = 'none';
+        // aiButton.disabled = false;
+        // aiButton.style.opacity = '1';
     });
 
 });
