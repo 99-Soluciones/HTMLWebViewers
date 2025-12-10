@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       button.addEventListener('click', function () {
         const fullPhone = `${client.codigoPais}${client.celNumero}`;
-        sendMessage(fullPhone, client.contactoNombre, client.contactoPuesto, 1);
+        sendMessage(client.contactoIDU, fullPhone, client.contactoNombre, client.contactoPuesto, 1);
       });
 
       infoDetails.appendChild(textContainer);
@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {number} isClose - 1 to send a message, 0 to close.
    */
   function sendMessage(
+    contactoIDU,
     clientPhone,
     clientName,
     clientEmployment,
@@ -123,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       className: '" & $className &"',
       classRecordIDoU: '" & $classRecordIDoU & "',
       whatsNumber: sanitizedPhone,
+      contactoIDU: contactoIDU,
       contactoNombre: clientName,
       contactoPuesto: clientEmployment,
       isClose: isClose,

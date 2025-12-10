@@ -1,64 +1,69 @@
-
 <!DOCTYPE html>
 <html lang='es'>
-  <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Editor y Copiador de Texto</title>
-    <!-- Esto solo es para visual, en Filemaker se seguira usando Style -->
-    <!-- <link rel='stylesheet' href='../../../utils/css/close.button.css'> 
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <title>Editor y Copiador de Texto</title>
+
+  <!-- <link rel='stylesheet' href='../../../utils/css/close.button.css'> 
     <link rel='stylesheet' href='./previewMessage.css'>  -->
-    <!-- Esto sera para Filemaker -->
-    <style>
-        /* {{CSS_PLACEHOLDER}} */
-    </style>
-  </head>
 
-  <body>
-      <div class='header'>
-        <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
-        <div class='header-content'>
-           <h2 class='title'>Revisa y envía a:&nbsp;</h2>
-           <p>" & $contactoNombre & "</p>
-        </div>
-       
+  <style>
+    /* {{CSS_PLACEHOLDER}} */
+  </style>
+</head>
+
+<body>
+  <div class='header'>
+    <button id='btnClose' class='close-button' aria-label='Cerrar'>&times;</button>
+    <div class='header-content'>
+      <h2 class='title'>Revisar y enviar a:&nbsp;</h2>
+      <p>" & $contactoNombre & "</p>
     </div>
+  </div>
+
+  <div class="editor-container">
+
+    <!-- Disclaimer superior -->
+    <div class='ai-disclaimer-top'>La IA puede cometer errores. Verifica antes de enviar</div>
+
+    <!-- Botón de Gemini -->
+    <div class="gemini-corner-icon-wrapper">
+      <div class="gemini-tooltip">
+        Mejorar con <span class="gemeni-gradient">Gemeni</span>
+      </div>
+      <!-- <button id='aiButton' title='Mejorar con IA'> -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Google-gemini-icon.svg" alt="Logo de Gemini"
+        id="aiButton" class="gemini-logo-img">
+      <!-- </button> -->
+    </div>
+
+    <!-- Editor -->
     <textarea id='textEditor' aria-label='Editor de texto'></textarea>
+  </div>
 
-    <div id='loadingMessage' class='loading-message' style='display: none;'>
-      <span class='spinner'></span>
-      <span>Generando mensaje...</span>
-    </div>
+  <div id='loadingMessage' class='loading-message' style='display: none;'>
+    <span class='spinner'></span>
+    <span>Generando mensaje...</span>
+  </div>
 
-    <div class='footer-controls'>
-      <p class='ai-disclaimer'>La IA puede cometer errores. Revisa antes de enviar.</p>
-      <div class='controls'>
-      <button id='aiButton' title='Mejorar con IA'>
-        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'>
-          <path d='M21.928 11.607c-.202-.488-.635-.605-.928-.633V8c0-1.103-.897-2-2-2h-6V4.61c.305-.274.5-.668.5-1.11a1.5 1.5 0 0 0-3 0c0 .442.195.836.5 1.11V6H5c-1.103 0-2 .897-2 2v2.997l-.082.006A1 1 0 0 0 1.99 12v2a1 1 0 0 0 1 1H3v5c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5a1 1 0 0 0 1-1v-1.938a1.006 1.006 0 0 0-.072-.455zM5 20V8h14l.001 3.996L19 12v2l.001.005.001 5.995H5z'/>
-          <ellipse cx='8.5' cy='12' rx='1.5' ry='2'/>
-          <ellipse cx='15.5' cy='12' rx='1.5' ry='2'/>
-          <path d='M8 16h8v2H8z'/>
-        </svg>
-        <span class='button-text'>Mejorar con IA</span>
-      </button>
+  <div class='footer-controls'>
+    <div class='controls'>
       <button id='sendButton' title='Enviar'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          viewBox='0 0 24 24'
-          fill='currentColor'
-        >
+        <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'>
           <path d='M2.01 21L23 12 2.01 3 2 10l15 2-15 2z' />
         </svg>
         <span class='button-text'>Enviar</span>
       </button>
-      </div>
     </div>
-    <!-- Test JS -->
-    <!-- <script type='module' src='../../../utils/filemaker.js'></script>
-    <script type='module' src='./previewMessage.js'></script> -->
-    <script> 
-        /* {{JS_PLACEHOLDER}} */
-    </script>
-  </body>
+  </div>
+
+  <!-- <script type='module' src='./previewMessage.js'></script> -->
+
+  <script>
+    /* {{JS_PLACEHOLDER}} */
+  </script>
+</body>
+
 </html>

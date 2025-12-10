@@ -3,11 +3,12 @@
     --radius: 999px;
     --bleed: 14px;
     --nudge: 6px;
+    --button-radius: 12px;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    /* margin: 12px 0px 0px 26px; */
     background-color: #dcf8c6a2;
     display: flex;
     flex-direction: column;
@@ -17,41 +18,101 @@ body {
 
 .buttons-container {
     display: flex;
+    flex-direction: column;
     gap: 12px;
     margin: 12px 0 16px;
     justify-content: center;
     align-items: center;
 }
 
-#btnCustom,
-#btnBlank {
-    width: 200px;
-    height: 40px;
+/* Botones */
+#btnBlank,
+#btnCustom {
+    width: 260px;
+    height: 50px;
     background-color: #fff;
-    border: 3px solid #fff;
-    border-radius: 100px;
+    border: none;
+    border-radius: var(--button-radius);
     font-weight: 700;
-    padding-left: 52px;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
-    background-repeat: no-repeat;
-    background-position: 16px center;
-    background-size: 29px 29px;
-    margin: 0;
-    font-size: 14px;
-    display: block;
+    font-size: 15px;
+    padding: 0 16px;
+    background-image: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-align: left;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.06), 0 6px 18px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-light);
     cursor: pointer;
+    color: #333;
 }
 
-#btnCustom:hover,
-#btnBlank:hover {
+/* Icono WA */
+#btnBlank::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+/* Icono flecha */
+#btnCustom::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid var(--wa);
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-radius: 2px;
+    transition: all 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover */
+#btnBlank:hover,
+#btnCustom:hover {
     background-color: var(--wa);
     color: #fff;
-    border: var(--wa);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.06), 0 10px 24px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
     transform: translateY(-1px);
+}
+
+#btnBlank:hover::after {
+    width: 24px;
+    height: 24px;
+}
+
+#btnCustom:hover::after {
+    border-left-color: #fff;
+    transform: translateX(4px);
+}
+
+/* Centrados */
+.dropdown-toggle {
+    justify-content: center;
+}
+
+.dropdown-toggle .label {
+    margin-right: auto;
+    color: inherit;
+    font-weight: 700;
+}
+
+#btnBlank,
+#btnCustom {
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+
+#btnBlank::after,
+#btnCustom::after {
+    position: absolute;
+    right: 16px;
 }
 
 h2 {
@@ -65,6 +126,7 @@ h2 {
     gap: 5px;
 }
 
+/* Toggle */
 .toggle-container {
     position: relative;
     width: 150px;
@@ -135,11 +197,13 @@ h2 {
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* Dropdown */
 .dropdown {
     width: 260px;
     position: relative;
     user-select: none;
     font-size: 15px;
+    margin-bottom: 12px;
 }
 
 .dropdown-toggle {
@@ -147,25 +211,32 @@ h2 {
     width: 100%;
     height: 50px;
     border: 0;
-    border-radius: 14px;
+    border-radius: var(--button-radius);
     background: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 16px;
     cursor: pointer;
-    box-shadow: none;
-    transition: box-shadow 0.2s ease, transform 0.15s ease;
-}
-
-.dropdown-toggle:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-    transform: translateY(-1px);
+    box-shadow: var(--shadow-light);
+    transition: box-shadow 0.2s ease, transform 0.15s ease, background-color 0.3s ease, color 0.3s ease;
+    color: #333;
 }
 
 .dropdown-toggle .label {
-    color: #333;
+    margin-right: auto;
+    color: inherit;
     font-weight: 700;
+    flex-grow: 1;
+    text-align: center;
+    margin-left: -20px;
+}
+
+.dropdown-toggle:hover {
+    background-color: var(--wa);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transform: translateY(-1px);
 }
 
 .chevron {
@@ -174,8 +245,12 @@ h2 {
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
     border-top: 7px solid #25d366;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, border-top-color 0.3s ease;
     border-radius: 2px;
+}
+
+.dropdown-toggle:hover .chevron {
+    border-top-color: #fff;
 }
 
 .dropdown.open .chevron,
@@ -230,12 +305,10 @@ h2 {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16), inset 0 2px 0 rgba(255, 255, 255, 0.35);
 }
 
-/*--- close.button.css ---*/
-
 .header {
-  position: static;
+    position: static;
 }
 
 .title {
-  font-size: 1.1rem;
+    font-size: 1.1rem;
 }

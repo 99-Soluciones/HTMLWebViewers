@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             className: '" & $className &"',
             message: message
         };
-         if (callType === 'ImproveWithAI') execFileMaker(data, 'api.WhatsApp ## msg.IACallAPI[js]|v0.25.3');
-        else execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
+        // execFileMaker(data, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2');
+        console.log(data);
     }
 
     btnClose.addEventListener('click', () => {

@@ -1,4 +1,4 @@
-/*import { execFileMaker } from '../../../utils/execFileMaker.js';*/
+// import { execFileMaker } from '../../../utils/execFileMaker.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     /* --- DOM Elements ---*/
@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
             contactoNombre: '" & $contactoNombre & "',
 
         };
-        setTimeout(() => execFileMaker(payload, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2'), 500);
+        // setTimeout(() => execFileMaker(payload, 'api.WhatsApp ## msg.selectTypeAndPrep[js]|v0.25.2'), 500);
+        console.log(payload);
     }
 
     /* --- Exec functions --- */

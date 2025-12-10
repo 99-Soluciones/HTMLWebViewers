@@ -3,8 +3,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-        Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #dcf8c6a2;
 }
 
@@ -15,25 +14,147 @@ body {
     box-sizing: border-box;
 }
 
-#textEditor {
+/* --- CONTENEDOR PRINCIPAL DEL EDITOR --- */
+.editor-container {
+    position: relative;
     width: 100%;
     flex-grow: 1;
     margin-bottom: 15px;
+}
+
+#textEditor {
+    width: 100%;
+    height: 100%;
     padding: 10px;
+    padding-top: 40px;
     font-size: 14px;
     border: 1px solid #fff;
     border-radius: 8px;
     box-sizing: border-box;
     resize: vertical;
     background-color: #fff;
-font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/* Footer Controls - disclaimer + buttons en la misma fila */
+/* --- DISCLAIMER SUPERIOR --- */
+.ai-disclaimer-top {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: rgba(60, 64, 67, 0.7);
+    backdrop-filter: blur(2px);
+}
+
+/* --- LOGO GEMINI (PASTILLA) --- */
+.gemini-corner-icon-wrapper {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 20;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 4px 8px;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* --- LOGO IMG CON HOVER SUAVE --- */
+.gemini-logo-img {
+    width: 33px;
+    height: 33px;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.gemini-logo-img:hover {
+    transform: scale(1.12);
+    filter: brightness(1.25);
+}
+
+/* --- TOOLTIP GEMINI --- */
+.gemini-tooltip {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    transform: translateY(-5px);
+
+    background-color: #303134;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 30;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gemini-tooltip::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #303134 transparent transparent transparent;
+}
+
+.gemini-corner-icon-wrapper:hover .gemini-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+/* === TEXTO DEGRADADO Gemeni === */
+.gemeni-gradient {
+    background: linear-gradient(90deg,
+        #00A8FF 0%,
+        #6A67D8 35%,
+        #C267EB 70%,
+        #FF4FD8 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+
+/* --- HEADER --- */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content p {
+    margin: 0;
+    font-size: 1.2rem;
+    align-self: center;
+    font-weight: 450;
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        flex-direction: column;
+    }
+}
+
+/* --- FOOTER Y BOTONES --- */
 .footer-controls {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 10px;
 }
 
@@ -45,7 +166,6 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     flex-shrink: 0;
 }
 
-/* Base styles for both buttons */
 .controls button {
     display: flex;
     align-items: center;
@@ -59,16 +179,15 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: bold;
     cursor: pointer;
     overflow: hidden;
-    transition: width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease,
-        justify-content 0.3s ease;
     padding: 0 10px;
+
+    transition: width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease, justify-content 0.3s ease;
 }
 
 .controls button svg {
     width: 22px;
     height: 22px;
     flex-shrink: 0;
-    display: block;
     transition: margin 0.3s ease;
 }
 
@@ -78,9 +197,9 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     max-width: 0;
     overflow: hidden;
     margin-left: 0;
-    transition: opacity 0.35s ease, max-width 0.35s ease,
-        margin-left 0.35s ease;
     flex: 0 0 auto;
+
+    transition: opacity 0.35s ease, max-width 0.35s ease, margin-left 0.35s ease;
 }
 
 .controls button:hover {
@@ -97,7 +216,6 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 .controls button:hover .button-text {
     opacity: 1;
     max-width: 100px;
-    margin-left: 0;
 }
 
 #sendButton {
@@ -114,51 +232,6 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
-#aiButton {
-    background-color: #007AFF;
-}
-
-#aiButton:hover {
-    background-color: #0056b3;
-    width: 155px;
-}
-
-/*--- close.button.css ---*/
-
-
-.header-content {
-  display: flex;
-  justify-content: space-between; 
-}
-
-.header-content p {
-  margin: 0px; 
-  font-size: 1.2rem;
-  align-self: center; 
-  font-weight: 450;
-}
-
-@media (max-width: 480px) {
-  .header-content {
-    flex-direction: column;
-  }
-}
-
-/* AI Disclaimer */
-.ai-disclaimer {
-    font-size: 10px;
-    color: #888;
-    text-align: left;
-    margin: 0;
-    padding: 4px 8px;
-    background-color: rgba(255, 193, 7, 0.1);
-    border-radius: 4px;
-    border-left: 2px solid #ffc107;
-    flex: 1;
-    min-width: 0;
-}
-
-/* Loading Message */
 .loading-message {
     display: flex;
     align-items: center;
@@ -166,9 +239,9 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     gap: 8px;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: rgba(0, 122, 255, 0.1);
+    background-color: rgba(0,122,255,0.1);
     border-radius: 8px;
-    color: #007AFF;
+    color: #007aff;
     font-size: 13px;
     font-weight: 500;
 }
@@ -176,20 +249,12 @@ font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 .spinner {
     width: 16px;
     height: 16px;
-    border: 2px solid rgba(0, 122, 255, 0.3);
-    border-top-color: #007AFF;
+    border: 2px solid rgba(0,122,255,0.3);
+    border-top-color: #007aff;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
+    to { transform: rotate(360deg); }
 }
-
-
-
-
-
-
